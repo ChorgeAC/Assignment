@@ -1,0 +1,17 @@
+.container_team {
+  color: rgb(39, 39, 39);
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title button {
+  background-color: #19bced;
+  height: 2rem;
+  margin: 0 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

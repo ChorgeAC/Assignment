@@ -3,6 +3,8 @@ import "./sign.css";
 import Header from "./Header";
 import axios from "axios";
 import { config } from "../App";
+import { persistLogin } from "./login";
+import { useNavigate } from "react-router-dom";
 
 const defaultRegister = {
   username: "",
@@ -11,6 +13,7 @@ const defaultRegister = {
 };
 const SignUp = () => {
   const [formdata, setformdata] = useState(defaultRegister);
+  const navigate = useNavigate();
 
   const onChangeHandler = (e) => {
     const name = e.target.name;
@@ -42,15 +45,30 @@ const SignUp = () => {
           password: data.password,
         });
         setformdata(defaultRegister);
-        alert("succsess");
+        login(data.username, data.password);
+        navigate("/");
       } catch (error) {
-        alert("failure");
+        alert(error.response.data.message);
       }
     }
   };
+
+  const login = async (username, password) => {
+    try {
+      const res = await axios.post(`${config.endpoint}/auth/login`, {
+        username: username,
+        password: password,
+      });
+      persistLogin(res.data.token, res.data.username);
+      window.location.reload();
+    } catch (error) {
+      console.log("Error");
+    }
+  };
+
   return (
     <>
-      <Header />
+      <Header hashidenAuthButtons={true} />
       <div className="container">
         <div>
           <h2 style={{ color: "purple", padding: "0.5rem" }}>Register</h2>

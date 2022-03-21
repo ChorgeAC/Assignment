@@ -1,0 +1,28 @@
+.tableContainer {
+  margin: 1rem;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+.btnDelete {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.btnDelete:hover {
+  background-color: #19bced;
+}
+
+.activeRow {
+  background-color: #d7dadb;
+}

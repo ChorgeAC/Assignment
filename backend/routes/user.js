@@ -38,11 +38,11 @@ router.post("/members", verifyAuth, (req, res) => {
   );
 });
 
-router.delete("/addresses/:id", verifyAuth, async (req, res) => {
-  console.log(`DELETE request received to "/cart/addresses"`);
+router.delete("/members/:id", verifyAuth, async (req, res) => {
+  console.log(`DELETE request received to "/user/members"`);
 
-  const index = await req.user.addresses.findIndex(
-    (element) => element._id === req.params.id
+  const index = await req.user.members.findIndex(
+    (element) => element.id === req.params.id
   );
   if (index === -1) {
     return res.status(404).json({
@@ -50,21 +50,19 @@ router.delete("/addresses/:id", verifyAuth, async (req, res) => {
       message: "Address to delete was not found",
     });
   }
-  req.user.addresses.splice(index, 1);
+  req.user.members.splice(index, 1);
   users.update(
     { _id: req.user._id },
-    { $set: { addresses: req.user.addresses } },
+    { $set: { members: req.user.members } },
     {},
     (err) => {
       if (err) {
         handleError(res, err);
       }
 
-      console.log(
-        `Address with id ${req.user._id} deleteed from user ${req.user.username}'s address list`
-      );
+      console.log(`member deleted..`);
 
-      return res.status(200).json(req.user.addresses);
+      return res.status(200).json(req.user.members);
     }
   );
 });

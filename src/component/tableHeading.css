@@ -1,0 +1,59 @@
+.navbar {
+  display: flex;
+}
+
+.navForCompony {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+  box-shadow: 1px 1px 5px 2px;
+  padding: 0.5rem;
+}
+
+.componyContainer {
+  position: absolute;
+  background-color: white;
+  left: 1rem;
+  top: 15.5rem;
+  box-shadow: 1px 1px 5px 2px lightblue;
+}
+
+.itmes {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 0 0.5rem;
+}
+
+.navForStatus {
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+  box-shadow: 1px 1px 5px 2px;
+  padding: 0.5rem;
+}
+
+.statusContainer {
+  position: absolute;
+  background-color: white;
+  left: 10.5rem;
+  top: 15.5rem;
+  padding: 0.3rem;
+  box-shadow: 1px 1px 5px 2px lightblue;
+}
+
+@media screen and (min-width: 728px) {
+  .statusContainer {
+    position: absolute;
+    background-color: white;
+    left: 10.5rem;
+    top: 13rem;
+    width: 5rem;
+  }
+  .componyContainer {
+    position: absolute;
+    background-color: white;
+    left: 1rem;
+    top: 13rem;
+  }
+}

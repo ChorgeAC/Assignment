@@ -2,10 +2,16 @@
   color: rgb(39, 39, 39);
 }
 
+.showModal {
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0.5;
+}
+
 .title {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 1rem;
 }
 
 .title button {

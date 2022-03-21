@@ -1,6 +1,7 @@
-import SignUp from "./component/SignUp";
-import TeamMember from "./component/teamMember";
 import { Route, Routes } from "react-router-dom";
+import SignUp from "./component/SignUp";
+import Login from "./component/login";
+import TeamMember from "./component/teamMember";
 
 export const config = {
   endpoint: `http://localhost:5000/api`,
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<TeamMember />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </div>
   );
